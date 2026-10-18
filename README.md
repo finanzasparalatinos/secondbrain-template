@@ -13,6 +13,8 @@ Conocimiento, procesos y reglas de la empresa para el asistente de IA
 
 Botón verde **Use this template → Create a new repository** (elige tu
 organización y **Private**). Luego conecta el repositorio en
-https://claude.ai/connect-github, abre https://claude.ai/code con él y
+https://claude.ai/connect-github, abre https://claude.ai/code, elige el
+repositorio y el entorno de la nube **Default** (acceso **Trusted**; si no
+existe: selector bajo el cuadro de mensaje → **New environment**) y
 escribe `Lee INSTALAR.md y sigue las instrucciones.` La guía completa
 paso a paso está en `GUIA.md`.

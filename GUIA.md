@@ -6,7 +6,7 @@ reglas, controles de seguridad y comandos probados en la práctica. Sin
 datos de ninguna otra empresa: solo la estructura.
 
 **Lo corto:** creas tres cuentas, copias la plantilla con un clic en GitHub, conectas
-dos cosas y escribes una frase. Claude hace el resto y te pregunta lo
+dos cosas, eliges el entorno de la nube y escribes una frase. Claude hace el resto y te pregunta lo
 que necesita. Tiempo: 30–45 minutos de instalación + la entrevista
 (2–3 bloques por sesión, unas 4–6 sesiones en total).
 
@@ -131,7 +131,7 @@ opción manual de abajo con el ZIP.
 3. CRM:
    - **HubSpot, Salesforce, Pipedrive u otro con conector:** conéctalo
      en la misma página.
-   - **GoHighLevel:** se conecta por el entorno (paso 6).
+   - **GoHighLevel:** se conecta con variables en el entorno (paso 6).
 4. Opcionales útiles: **Canva** (diseños), **Slack** o **Notion**
    si los usan.
 5. Cada persona del equipo conecta **sus propias** cuentas. Nunca se
@@ -140,27 +140,54 @@ opción manual de abajo con el ZIP.
 > Los conectores se leen al **iniciar** una sesión. Si conectas algo
 > nuevo, abre una sesión nueva.
 
-### Paso 6 — Entorno de la nube (solo si usas GoHighLevel)
+### Paso 6 — Entorno de la nube (obligatorio, una sola vez)
 
-1. En https://claude.ai/code abre una sesión nueva y elige tu
-   repositorio.
-2. En la barra de título de la sesión: menú del **entorno** → **Editar**.
-3. Acceso a la red: deja el valor por defecto (de confianza).
-4. En **variables de entorno** (o «secretos de red», según la versión)
-   agrega:
-   - `GHL_PIT` = el *Private Integration Token* de GoHighLevel
-     (GoHighLevel → Settings → Private Integrations → crear token solo
-     con los permisos necesarios; en lo posible, solo lectura)
-   - `GHL_LOCATION_ID` = el ID de tu subcuenta (Settings → Business
-     Profile)
-5. Guardar. Las sesiones nuevas lo toman automáticamente.
+El entorno es la «computadora en la nube» donde Claude trabaja con tu
+repositorio. Sin entorno no puede empezar ninguna sesión.
+
+1. Abre https://claude.ai/code.
+2. **Primera vez en Claude Code:**
+   - Plan **Pro o Max**: el entorno **Default** se crea solo. Sigue con
+     el punto 3.
+   - Plan **Team o Enterprise**: aparece el formulario **Create your
+     first cloud environment**. Deja todo como viene (acceso a la red
+     **Trusted**, sin variables, sin script) y pulsa **Create &
+     finish**.
+3. En la pantalla de sesión nueva, debajo del cuadro de mensaje, hay una
+   fila de selectores:
+   - **Repositorio:** elige tu repositorio de la memoria
+     (p. ej. `empresa-memoria`). Si no aparece, vuelve al paso 4.
+   - **Entorno** (el primer selector de la fila): comprueba que está
+     **Default**. Si no hay ninguno: **New environment** → nombre
+     `Default` · acceso a la red **Trusted** → **Add environment**.
+4. Listo. No hace falta nada más: el Second Brain no necesita variables
+   ni script de instalación.
+
+> El selector de entorno solo aparece **antes** de enviar el primer
+> mensaje. Para cambiar el entorno de una sesión ya abierta: flecha
+> junto al título de la sesión → **Edit cloud environment**.
+
+**Solo si usas GoHighLevel:** abre el entorno para editarlo (en el
+selector, pasa el mouse sobre **Default** → icono de ajustes, o en una
+sesión abierta: flecha junto al título → **Edit cloud environment**) y en
+**Environment variables** agrega:
+
+- `GHL_PIT` = el *Private Integration Token* de GoHighLevel
+  (GoHighLevel → Settings → Private Integrations → crear token solo con
+  los permisos necesarios; en lo posible, solo lectura)
+- `GHL_LOCATION_ID` = el ID de tu subcuenta (Settings → Business
+  Profile)
+
+Guardar y abrir una sesión nueva.
 
 > **Nunca** pegues un token o contraseña en el chat. Solo en el
-> entorno.
+> entorno. Detalles oficiales:
+> https://code.claude.com/docs/en/cloud-environments
 
 ### Paso 7 — La instalación (Claude trabaja)
 
-1. En https://claude.ai/code: **sesión nueva** con tu repositorio.
+1. En https://claude.ai/code: **sesión nueva** con tu repositorio y el
+   entorno **Default** (paso 6).
 2. Escribe exactamente:
 
    ```
@@ -382,6 +409,7 @@ Todas nacieron de errores reales en la práctica:
 - [ ] Repositorio privado en GitHub con la plantilla subida.
 - [ ] Claude GitHub App instalada, solo en ese repositorio.
 - [ ] Gmail, Drive, Calendar (y CRM) conectados con login propio.
+- [ ] Entorno de la nube **Default** creado (acceso **Trusted**).
 - [ ] `Lee INSTALAR.md…` ejecutado, guardado en la rama principal.
 - [ ] En GitHub: `CLAUDE.md` sin `{{`, carpeta `.claude` existe.
 - [ ] Sesión nueva: `/entrevista-segundo-cerebro` aparece y arranca.
@@ -394,6 +422,7 @@ Todas nacieron de errores reales en la práctica:
 | `/entrevista-segundo-cerebro` no aparece | abrir una **sesión nueva** (los comandos se cargan al iniciar); comprobar en GitHub que existe `.claude/skills/` en `main` |
 | No aparece el botón «Use this template» | la plantilla no es visible para tu cuenta: usa la opción manual con el ZIP o pide acceso a FPL Business |
 | Falta la carpeta `.claude` / `_claude` en GitHub | volver a subir la carpeta `_claude` (paso 3) y repetir el paso 7 |
+| No puedo enviar el primer mensaje / no hay entorno | crear el entorno (paso 6): selector bajo el cuadro de mensaje → **New environment** → **Trusted** → **Add environment** |
 | Claude no puede guardar («push» rechazado) | revisar en https://claude.ai/connect-github que la app tenga acceso al repositorio |
 | Claude no ve Gmail / Drive / CRM | conectar en https://claude.ai/customize/connectors y abrir sesión nueva; para GoHighLevel revisar las variables del entorno |
 | Una sesión no ve lo que hizo otra | lo de la otra quedó en su rama de trabajo: pedir «pasa el trabajo de la rama X a main» |
