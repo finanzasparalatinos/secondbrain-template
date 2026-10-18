@@ -21,6 +21,7 @@ El segundo cerebro tiene tres partes:
 | **Memoria** | todo el conocimiento de la empresa en archivos de texto: oferta, cliente ideal, tono, ventas, equipo, procesos, decisiones | un repositorio privado en GitHub |
 | **Reglas y comandos** | la «constitución» (`CLAUDE.md`), controles de seguridad automáticos y los comandos `/entrevista-segundo-cerebro`, `/traspaso`, `/crear-agente` | dentro del mismo repositorio (`.claude/`) |
 | **Conexiones** | acceso a Gmail, Drive, Calendar, CRM, cada persona con su propio login | en tu cuenta de Claude (conectores) |
+| **Entorno de la nube** | la «computadora en la nube» donde Claude trabaja con el repositorio | en tu cuenta de Claude (claude.ai/code) |
 
 Cada vez que alguien abre una sesión de Claude Code con ese repositorio,
 Claude lee las reglas, conoce la empresa y trabaja con el mismo estado
@@ -52,7 +53,7 @@ espacio privado de la dirección (opcional).
 
 | Qué | Para qué | Costo | Obligatorio |
 |---|---|---|---|
-| **Cuenta de Claude** con Claude Code (plan de pago; para un equipo, plan Team) | el asistente | según plan — ver https://claude.com/pricing | sí |
+| **Cuenta de Claude** con Claude Code (Pro, Max, Team o Enterprise; para un equipo, Team) | el asistente | según plan — ver https://claude.com/pricing | sí |
 | **Cuenta de GitHub** + una **organización** de la empresa | guardar la memoria | gratis | sí |
 | **Google Workspace** (Gmail, Drive, Calendar) | leer documentos y correos existentes, rutinas | el que ya tengan | recomendado |
 | **CRM** (p. ej. GoHighLevel, HubSpot) | clientes y oportunidades | el que ya tengan | opcional |
@@ -231,9 +232,9 @@ Guardar y abrir una sesión nueva.
 
 1. Invita a cada persona a tu plan de Claude (Team) y a la organización
    de GitHub (con acceso al repositorio de la memoria).
-2. Cada persona hace los pasos 4 y 5 con **sus propias** cuentas.
+2. Cada persona hace los pasos 4, 5 y 6 con **sus propias** cuentas.
 3. Comparte con el equipo: «Abre claude.ai/code con el repositorio
-   `empresa-memoria`. Al terminar, `/traspaso`.»
+   `empresa-memoria` y el entorno Default. Al terminar, `/traspaso`.»
 
 ### Paso 11 — Espacio de dirección (opcional, recomendado)
 
